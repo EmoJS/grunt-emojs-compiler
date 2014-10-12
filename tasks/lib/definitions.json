@@ -9,8 +9,10 @@
     "closeEscape"  : "0x1F448" // White Left Pointing Backhand Index
   },
   "singleCharacters": {
+    "World"   : "Hello", // Testing pair
     "0x1F300" : "A", // Cyclone
-    "World"   : "Hello" // Testing pair
+    "0x1F415" : "if", // Dog
+    "0x1F408" : "else" // Dog
   }
 
   // ,

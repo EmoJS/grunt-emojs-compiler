@@ -27,10 +27,6 @@ module.exports = function (grunt) {
       definitionsSrc: 'lib/definitions.json'
     });
 
-    // grunt.file.write('./test/json-min.json', JSON.minify(require(options.definitionsSrc)));
-    // grunt.log.writeln(JSON.minify(require(options.definitionsSrc)));
-    // grunt.log.writeln('bar');
-
     // find and parse definitionList
     // if (!grunt.file.isFile(options.definitionsSrc)) {
     //   grunt.log.error('Definition list "' + options.definitionsSrc + '" not found.');
