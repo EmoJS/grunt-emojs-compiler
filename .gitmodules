@@ -1,0 +1,3 @@
+[submodule "tasks/lib/emojs-definitions"]
+	path = tasks/lib/emojs-definitions
+	url = https://github.com/EmoJS/emojs-definitions.git
