@@ -17,14 +17,14 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('emojs-compiler');
 ```
 
-## The "emojs_compiler" task
+## The "emojs-compiler" task
 
 ### Overview
-In your project's Gruntfile, add a section named `emojs_compiler` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `emojs-compiler` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  emojs_compiler: {
+  'emojs-compiler': {
     options: {
       // Task-specific options go here.
     },
@@ -56,7 +56,7 @@ In this example, the default options are used to compile . So if the `main.emojs
 
 ```js
 grunt.initConfig({
-  emojs_compiler: {
+  'emojs-compiler': {
     options: {},
     files: {
       'dest/main.js': ['src/main.emojs'],
@@ -70,7 +70,7 @@ In this example, the default options are used to compile . So if the `main.emojs
 
 ```js
 grunt.initConfig({
-  emojs_compiler: {
+  'emojs-compiler': {
     options: {
       definitionsType: 'custom',
       definitionsSrc: 'custom-definitions.json',
