@@ -24,7 +24,7 @@ module.exports = function (grunt) {
     // Load user options
     var options = this.options({
       definitionsType: 'default',
-      definitionsSrc: 'lib/definitions.json'
+      definitionsSrc: 'lib/master/definitions.json'
     });
 
     // find and parse definitionList

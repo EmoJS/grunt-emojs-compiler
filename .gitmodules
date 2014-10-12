@@ -1,0 +1,3 @@
+[submodule "tasks/lib/master"]
+	path = tasks/lib/master
+	url = https://github.com/EmoJS/emojs-definitions.git
