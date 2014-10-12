@@ -1,9 +1,9 @@
 {
   "name": "grunt-emojs-compiler",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Grunt Compiler for EmoJS",
-  "homepage": "https://github.com/RedRiderX/grunt-emojs-compiler",
-  "repository": "https://github.com/RedRiderX/grunt-emojs-compiler",
+  "homepage": "https://emojs.github.io/",
+  "repository": "https://github.com/EmoJS/grunt-emojs-compiler",
   "author": {
     "name": "RedRiderX",
     "email": "contactus@redriderx.com",
