@@ -28,11 +28,10 @@ exports.emojs_compiler = {
     done();
   },
   default_options: function (test) {
-    test.expect(4);
+    test.expect(3);
 
-    var actual = grunt.file.read('tmp/default_options.js');
-    var expected = grunt.file.read('test/expected/default_options.js');
-    test.equal(actual, expected, 'Proof of concept find and replace');
+    var actual = '';
+    var expected = '';
 
     actual = grunt.file.read('tmp/test2.js');
     expected = grunt.file.read('test/expected/test2.js');

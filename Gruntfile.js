@@ -35,7 +35,7 @@ module.exports = function (grunt) {
     'emojs-compiler': {
       default_options: {
         files: {
-          'tmp/default_options.js': ['test/fixtures/testing.emojs'],
+          // 'tmp/default_options.js': ['test/fixtures/testing.emojs'],
           'tmp/test2.js': ['test/fixtures/test2.emojs'],
           'tmp/test3.js': ['test/fixtures/test3.emojs'],
           'tmp/test4.js': ['test/fixtures/test4.emojs']

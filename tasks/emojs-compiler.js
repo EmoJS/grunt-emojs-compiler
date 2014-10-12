@@ -76,7 +76,7 @@ module.exports = function (grunt) {
           // Use template on contents
           // var replaceWith = "$1" + newChar;
           // contents = contents.replace(re, replaceWith);
-          contents = contents.replace(re, newChar);
+          contents = contents.replace(re, esrever.reverse(newChar));
         }
 
         // Run final find and replace for escape characters
