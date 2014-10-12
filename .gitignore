@@ -1,2 +1,3 @@
 node_modules/.bin/grunt-string-replace
 node_modules/
+tmp/

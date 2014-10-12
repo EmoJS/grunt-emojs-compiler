@@ -1,5 +1,5 @@
 {
-  // Saved in Ascii compatible literals, to preserve my sanity
+  // Saved in Ascii compatible definitions, to preserve my sanity
   // When adding characters, please make sure to add a comment with the current name of the stated emoji
 
   // EmoJS specific escape characters, to allow literal emojis to be expressed in code
