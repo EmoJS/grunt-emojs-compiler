@@ -28,7 +28,7 @@ exports.emojs_compiler = {
     done();
   },
   default_options: function (test) {
-    test.expect(3);
+    test.expect(4);
 
     var actual = grunt.file.read('tmp/default_options.js');
     var expected = grunt.file.read('test/expected/default_options.js');
@@ -41,6 +41,10 @@ exports.emojs_compiler = {
     actual = grunt.file.read('tmp/test3.js');
     expected = grunt.file.read('test/expected/test3.js');
     test.equal(actual, expected, 'Find Single Emoji and not replace due to escape character');
+
+    actual = grunt.file.read('tmp/test4.js');
+    expected = grunt.file.read('test/expected/test4.js');
+    test.equal(actual, expected, 'Compile complex Emoji string');
 
     test.done();
     }

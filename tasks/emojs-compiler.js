@@ -18,6 +18,7 @@ module.exports = function (grunt) {
 
     // Set up dependences
     var punycode = require('punycode');
+    var esrever = require('esrever');
     var path = require('path');
     JSON.minify = JSON.minify || require('node-json-minify');
 
@@ -55,6 +56,9 @@ module.exports = function (grunt) {
         
         var contents = grunt.file.read(filepath);
 
+        // Reverse contents for funky RegExp
+        contents = esrever.reverse(contents);
+
         // definitionList.singleCharacters.forEach(function (newChar, sourceChar) {
         for (var sourceChar in definitionList.singleCharacters) {
           
@@ -66,11 +70,13 @@ module.exports = function (grunt) {
           }
 
           // RegExp template
-          var re = new RegExp("([^" + escapeChar + "])(" + sourceChar + ")","g");
+          // A negative lookbehind by way of a negative lookahead on reversed data
+          var re = new RegExp("(" + sourceChar + ")(?!" + escapeChar + ")","g");
 
           // Use template on contents
-          var replaceWith = "$1" + newChar;
-          contents = contents.replace(re, replaceWith);
+          // var replaceWith = "$1" + newChar;
+          // contents = contents.replace(re, replaceWith);
+          contents = contents.replace(re, newChar);
         }
 
         // Run final find and replace for escape characters
@@ -83,12 +89,20 @@ module.exports = function (grunt) {
             ecCharValue = punycode.ucs2.encode([ecCharValue]);
           }
 
+          // // RegExp template
+          // var eCre = new RegExp("([^" + escapeChar + "])(" + ecCharValue + ")","g");
+
           // RegExp template
-          var eCre = new RegExp("([^" + escapeChar + "])(" + ecCharValue + ")","g");
+          // A negative lookbehind by way of a negative lookahead on reversed data
+          var eCre = new RegExp("(" + ecCharValue + ")(?!" + escapeChar + ")","g");
 
           // Use template on contents
-          contents = contents.replace(eCre, "$1");
+          contents = contents.replace(eCre, "");
         }
+
+
+        // Reverse contents back after all funky RegExp is completed 
+        contents = esrever.reverse(contents);
 
         return contents;
       });
