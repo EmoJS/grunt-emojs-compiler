@@ -2,6 +2,11 @@
 
 > Grunt Compiler for EmoJS
 
+## Major TODOS
+* Finish definition list (which you should be able to find soon at https://github.com/EmoJS/emojs-definitions)
+* Finish implementation of bracketed escape charaecters
+* Publish to npm
+
 ## Getting Started
 This plugin requires Grunt.
 
