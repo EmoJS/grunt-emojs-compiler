@@ -5,7 +5,7 @@
 ## Major TODOS
 * Finish definition list (which you should be able to find soon at https://github.com/EmoJS/emojs-definitions)
 * Finish implementation of bracketed escape charaecters
-* Publish to npm
+* Publish to npm (currently waiting on definition list to reach 1.0.0)
 
 ## Getting Started
 This plugin requires Grunt.
