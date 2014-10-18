@@ -39,7 +39,8 @@ module.exports = function (grunt) {
           'tmp/test2.js': ['test/fixtures/test2.emojs'],
           'tmp/test3.js': ['test/fixtures/test3.emojs'],
           'tmp/test4.js': ['test/fixtures/test4.emojs'],
-          'tmp/test5.js': ['test/fixtures/test5.emojs']
+          'tmp/test5.js': ['test/fixtures/test5.emojs'],
+          'tmp/test6.js': ['test/fixtures/test6.emojs']
         }
       }
     },

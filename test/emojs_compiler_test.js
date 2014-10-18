@@ -28,7 +28,7 @@ exports.emojs_compiler = {
     done();
   },
   default_options: function (test) {
-    test.expect(4);
+    test.expect(5);
 
     var actual = '';
     var expected = '';
@@ -48,6 +48,10 @@ exports.emojs_compiler = {
     actual = grunt.file.read('tmp/test5.js');
     expected = grunt.file.read('test/expected/test5.js');
     test.equal(actual, expected, 'Compile complex mixed Emoji and non-Emoji string');
+
+    actual = grunt.file.read('tmp/test6.js');
+    expected = grunt.file.read('test/expected/test6.js');
+    test.equal(actual, expected, 'Compile general Emoji list');
 
     test.done();
     }

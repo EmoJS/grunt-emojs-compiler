@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     var punycode = require('punycode');
     var esrever = require('esrever');
     var path = require('path');
-    
+
     // Load user options
     var options = this.options({
       definitionsType: 'default',
@@ -55,7 +55,6 @@ module.exports = function (grunt) {
         // Reverse contents for funky RegExp
         contents = esrever.reverse(contents);
 
-        // definitionList.singleCharacters.forEach(function (newChar, sourceChar) {
         for (var sourceChar in definitionList.singleCharacters) {
           
           var newChar = definitionList.singleCharacters[sourceChar];
@@ -70,31 +69,36 @@ module.exports = function (grunt) {
           var re = new RegExp("(" + sourceChar + ")(?!" + escapeChar + ")","g");
 
           // Use template on contents
-          // var replaceWith = "$1" + newChar;
-          // contents = contents.replace(re, replaceWith);
           contents = contents.replace(re, esrever.reverse(newChar));
         }
 
-        // Run final find and replace for escape characters
-        for (var ecCharTitle in definitionList.escapeCharacters) {
-          
-          var ecCharValue = definitionList.escapeCharacters[ecCharTitle];
+        // Run final find and replace checks for escape characters
 
-          // Use Punycode to make sure that unicode is properly formatted
-          if (ecCharValue.lastIndexOf("0x", 0) === 0) {
-            ecCharValue = punycode.ucs2.encode([ecCharValue]);
-          }
+        // Keycap character  
+        var ecCharValue = definitionList.escapeCharacters['keycap'];
 
-          // // RegExp template
-          // var eCre = new RegExp("([^" + escapeChar + "])(" + ecCharValue + ")","g");
-
-          // RegExp template
-          // A negative lookbehind by way of a negative lookahead on reversed data
-          var eCre = new RegExp("(" + ecCharValue + ")(?!" + escapeChar + ")","g");
-
-          // Use template on contents
-          contents = contents.replace(eCre, "");
+        // Use Punycode to make sure that unicode is properly formatted
+        if (ecCharValue.lastIndexOf("0x", 0) === 0) {
+          ecCharValue = punycode.ucs2.encode([ecCharValue]);
         }
+
+        // RegExp template
+        // A negative lookbehind by way of a negative lookahead on reversed data
+        // var eCre = new RegExp( ecCharValue + "([\\d#]){1}(?!" + escapeChar + ")","g");
+        var eCre = new RegExp( "([\\d#])" + ecCharValue + "(?!" + escapeChar + ")","g");
+
+        // Use template on contents
+        contents = contents.replace(eCre, "$1");
+        
+          
+        // Single escape character
+
+        // RegExp template
+        // A negative lookbehind by way of a negative lookahead on reversed data
+        eCre = new RegExp("(" + escapeChar + ")(?!" + escapeChar + ")","g");
+
+        // Use template on contents
+        contents = contents.replace(eCre, "");
 
 
         // Reverse contents back after all funky RegExp is completed 
