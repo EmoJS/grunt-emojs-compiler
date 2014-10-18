@@ -20,25 +20,21 @@ module.exports = function (grunt) {
     var punycode = require('punycode');
     var esrever = require('esrever');
     var path = require('path');
-    JSON.minify = JSON.minify || require('node-json-minify');
-
+    
     // Load user options
     var options = this.options({
       definitionsType: 'default',
-      definitionsSrc: 'lib/emojs-definitions/definitions.json'
+      definitionsSrc: 'lib/emojs-definitions/definitions.min.json'
     });
 
-    // find and parse definitionList
-    // if (!grunt.file.isFile(options.definitionsSrc)) {
-    //   grunt.log.error('Definition list "' + options.definitionsSrc + '" not found.');
-    // } else {
-      var definitionsAbsolutePath = __dirname + path.sep + options.definitionsSrc;
+    // Make relative path absolute for JSON.parse
+    var definitionsAbsolutePath = __dirname + path.sep + options.definitionsSrc;
 
-      var definitionList = JSON.parse(JSON.minify(grunt.file.read(definitionsAbsolutePath)));
+    // Load definition list
+    var definitionList = JSON.parse(grunt.file.read(definitionsAbsolutePath));
 
-      // Define the escape charecter to use for definitions
-      var escapeChar = punycode.ucs2.encode([definitionList.escapeCharacters.singleEscape]);
-    // }
+    // Define the escape character to use for definitions
+    var escapeChar = punycode.ucs2.encode([definitionList.escapeCharacters.singleEscape]);
 
     // Iterate over all specified file groups.
     this.files.forEach(function (file) {

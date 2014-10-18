@@ -1,6 +1,6 @@
 /*
  * emojs-compiler
- * 127.0.0.1
+ * emojs.github.io
  *
  * Copyright (c) 2014 RedRiderX
  * Licensed under the MIT license.
